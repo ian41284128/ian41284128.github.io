@@ -1,10 +1,63 @@
 *{
     box-sizing: border-box;
 }
-html, body{
+html body{
     margin: 0;
 }
-img{
-    width: 100%;
-    height: auto;
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#header{
+    background-image: url("images/raytracingfinal.png");
+    border: 50px solid black;
+    background-size:cover;
+    color: white;
+    width: 100vw;
+    height: 90vh;
+    text-align: center;
+}
+
+#title-card{
+    position: absolute;
+    border-radius: 20px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    background-color: black;
+    h1{
+        padding: 25px;
+        padding-bottom: 0;
+    }
+}
+
+#header-links{
+    font-size: 30px;
+    padding: 25px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    div{
+        justify-content: center;
+        border-radius: .5em;
+        display: flex;
+        position: relative;
+        padding: 10px;
+        --padding: 5px;
+        svg{
+            fill: white;
+            margin-top: calc(var(--padding) + var(--padding) / 2);
+            height: 1em;
+        }
+        p{
+            margin: var(--padding);
+            transition: all 1s ease-in-out;
+        }
+    }
+    div:hover p{
+        width: 100%;
+        opacity: 1;
+    }
 }
