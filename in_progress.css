@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Sono:wght@200..800&display=swap');
+
 *{
     box-sizing: border-box;
 }
@@ -23,24 +25,34 @@ body{
     background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
 }
 
+.sono {
+    font-family: "Sono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+      "MONO" 1;
+  }
+
 .window{
     --border-weight: 2px;
     --border-radius: 10px;
     --title-bar-height: 22px;
+    --window-buttons: "🗕 🗖 🗙";
     border: var(--border-weight) solid black;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     filter: drop-shadow(5px 5px 0px black);
 }
 
 .window::before{
+    color: black;
     --padding-right: 5px;
-    content: "🗕 🗖 🗙";
+    content: var(--window-buttons);
     text-align: right;
     padding-right: var(--padding-right);
     padding-bottom: 2px;
     position: absolute;
-    top: calc(var(--border-weight) * -1 - var(--title-bar-height));
-    left: calc(var(--border-weight) * -1);
+    top: calc(-1 * var(--border-weight) - var(--title-bar-height));
+    left: calc(-1 * var(--border-weight));
     width: calc(100% - var(--padding-right));
     height: var(--title-bar-height);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -49,24 +61,35 @@ body{
 }
 
 .window::after{
+    color: black;
     content: var(--title);
     background: var(--icon) no-repeat;
     height: var(--title-bar-height);
+    width: 70%;
+    overflow: hidden;
+    font-size: 15px;
+    font-family: "Comfortaa", sans-serif;
     background-size: var(--title-bar-height);
-    background-position-x: 3px;
+    --icon-width: 3px;
+    background-position-x: var(--icon-width);
     position: absolute;
-    padding-left: calc(var(--title-bar-height) + 3px + 3px);
+    padding-left: calc(var(--title-bar-height) + var(--icon-width) + 3px);
     padding-top: 2px;
-    top: calc(var(--title-bar-height) * -1);
+    top: calc(-1 * var(--title-bar-height));
     left: 0;
 }
 
 #in-progress{
     --title: attr(data-title);
-    background-color: bisque;
+    background-color: #282828;
+    color: #fbf1c7;
     position: absolute;
     top: 25%;
-    left: 40%;
-    width: 300px;
+    left: 35%;
+    width: 400px;
     height: 300px;
+    padding: 5px;
+    p{
+        margin: 0;
+    }
 }
