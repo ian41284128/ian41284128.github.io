@@ -28,9 +28,8 @@ body{
     --border-radius: 10px;
     --title-bar-height: 22px;
     border: var(--border-weight) solid black;
-    border-radius: var(--border-radius);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     filter: drop-shadow(5px 5px 0px black);
-    padding-top: var(--title-bar-height);
 }
 
 .window::before{
@@ -40,7 +39,7 @@ body{
     padding-right: var(--padding-right);
     padding-bottom: 2px;
     position: absolute;
-    top: calc(var(--border-weight) * -1);
+    top: calc(var(--border-weight) * -1 - var(--title-bar-height));
     left: calc(var(--border-weight) * -1);
     width: calc(100% - var(--padding-right));
     height: var(--title-bar-height);
@@ -58,7 +57,7 @@ body{
     position: absolute;
     padding-left: calc(var(--title-bar-height) + 3px + 3px);
     padding-top: 2px;
-    top: 0;
+    top: calc(var(--title-bar-height) * -1);
     left: 0;
 }
 
