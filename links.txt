@@ -1,0 +1,15 @@
+itch page: https://tsai-ian.itch.io/
+my webdev hw: https://ian41284128.github.io/WebDevHW/
+ima blog: https://wp.nyu.edu/shanghai-iann/
+lunar lander ai: https://github.com/ian41284128/RLLunarLander
+
+
+Categories
+web development
+- webdevhw
+	3d room
+	running site
+- homie
+misc
+
+games

@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    margin: 0;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+.window{
+    --border-weight: 2px;
+    --border-radius: 10px;
+    --title-bar-height: 22px;
+    border: var(--border-weight) solid black;
+    border-radius: var(--border-radius);
+    filter: drop-shadow(5px 5px 0px black);
+    padding-top: var(--title-bar-height);
+}
+
+.window::before{
+    content: "🗕 🗖 🗙";
+    text-align: right;
+    position: absolute;
+    top: calc(var(--border-weight) * -1);
+    left: calc(var(--border-weight) * -1);
+    width: 100%;
+    height: var(--title-bar-height);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border: var(--border-weight) solid black;
+    background-color: plum;
+}
+
+#in-progress{
+    background-color: bisque;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 300px;
+    height: 300px;
+}
