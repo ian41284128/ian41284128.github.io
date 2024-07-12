@@ -7,12 +7,14 @@ function animateTerminal(frame){
 
 function typingAnimation(element, text, next){
     let char = text.shift()
-    element.textContent += char
+    element.innerText = element.innerText.slice(0, -1)
+    element.textContent += char + "█"
     if(text.length > 0){
         setTimeout(() => {
             typingAnimation(element, text, next)
         }, ".,?!".includes(char) ? 250 : 25)
     }else{
+        element.innerText = element.innerText.slice(0,-1)
         setTimeout(next, 500)
     }
 }
