@@ -111,8 +111,8 @@ body{
     background-color: #282828;
     color: #fbf1c7;
     position: absolute;
-    top: 25%;
-    left: 35%;
+    top: 100px;
+    left: 200px;
     width: 400px;
     height: 300px;
     padding: 5px;
