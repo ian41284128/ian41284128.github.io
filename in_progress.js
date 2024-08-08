@@ -12,7 +12,7 @@ function typingAnimation(element, text, next){
     if(text.length > 0){
         setTimeout(() => {
             typingAnimation(element, text, next)
-        }, ".,?!".includes(char) ? 250 : 15)
+        }, 15)
     }else{
         setTimeout(() => {
             element.innerText = element.innerText.slice(0,-1)
@@ -21,7 +21,7 @@ function typingAnimation(element, text, next){
     }
 }
 
-const buildSequence = (elements) => {
+const buildSequence = (elements, innerTexts) => {
     if(elements.length == 0)
         return () => {
             let frame = 0
@@ -31,9 +31,11 @@ const buildSequence = (elements) => {
             }, 125);
         }
     const element = elements.shift()
-    let text = element.innerText
-    element.innerText = ''
-    return () => typingAnimation(element, text.split(''), buildSequence(elements))
+    let text = innerTexts.shift()
+    return () => typingAnimation(element, text.split(''), buildSequence(elements, innerTexts))
 }
 
-buildSequence(Array.from(document.getElementsByClassName('type')))()
+let elements = Array.from(document.getElementsByClassName('type'))
+let innerTexts = elements.map(n => n.innerText)
+elements.forEach(n => n.innerText = '')
+buildSequence(elements, innerTexts)()
