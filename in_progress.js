@@ -12,7 +12,7 @@ function typingAnimation(element, text, next){
     if(text.length > 0){
         setTimeout(() => {
             typingAnimation(element, text, next)
-        }, ".,?!".includes(char) ? 250 : 25)
+        }, ".,?!".includes(char) ? 250 : 15)
     }else{
         setTimeout(() => {
             element.innerText = element.innerText.slice(0,-1)
