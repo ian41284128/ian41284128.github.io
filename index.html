@@ -3,41 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="in_progress.css">
     <script type="module" src="/in_progress.js"></script>
+=======
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="index.js"></script>
+>>>>>>> main
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
     <title>Ian Nacke</title>
 </head>
 <body>
-    <div class="window sono" id="in-progress" data-title="/c/Users/ian/websites/portfolio" style="--icon: url('https://cdn-icons-png.flaticon.com/512/7207/7207229.png')">
-        <p><span style="color:#98971a">ian@nacke</span> <span style="color:#d79921">~</span> <span style="color:#b16286">%</span> ./portfolio.exe</p>
-        <p class="type">Hi, my name is Ian,</p>
-        <p class="type">I am a computer science graduate and aspiring video game programmer with an interest in social science, 
-            game studies, and the ways in which they intersect. My passion projects include experimental 
-            video games and web pages. Currently searching for a position in the games industry to bring my 
-            cross-cultural experience.</p>
+    <div class="window sono" id="about" data-title="About Me">
+        <div class="window-content">
+            <p><span style="color:#98971a">ian@nacke</span> <span style="color:#d79921">~</span> <span style="color:#b16286">%</span> <span class="type">./'hello world'</span></p>
+            <p class="type">Hi, my name is Ian,</p>
+            <p class="type">
+                I recently graduated with a B.S. in computer science from NYU Shanghai and love programming gameplay, simulating nature, and experimenting with graphics. I like programming best when it makes art, and my passion projects often integrate my interest for 3D modeling and physical art such as acrylics and pen/pencil. I am Experienced with Unity, C#, and Javascript frameworks like P5 and Three, and dream of making video games for a living.
+            </p>
             <br>
-        <span class="type">This webpage is still in progress... </span> <span id="loading-animation"></span>
+            <span class="type">Thanks for visiting! This page is still in progress, so check back for updates... </span> <span id="loading-animation"></span>
+        </div>
+    </div>
+
+    <div class="window" id="portfolio" data-title="My Projects">
+        <div id="portfolio-header">
+            <h3>Video games and websites, complete and in progress</h3>
+        </div>
+        <div class="window-content">
+            <div id="portfolio-items" class="sono">
+                <article class="portfolio-item" id="desert-item">
+                    <div class="portfolio-title">
+                        <h1>The Desert</h1>
+                        <div class="tags"><span>Unity</span><span>C#</span><span>GDAL</span></div>
+                        <p>Work in Progress</p>
+                        <sub><span>An augmented reality, geospatial data experiment. Check back for new devlogs on the progress of this project!</span></sub>
+                    </div>
+                    
+                </article>
+                <article class="portfolio-item" id="ai-item">
+                    <div class="portfolio-title">
+                        <h1>Lunar Lander Reinforcement Learning Agent</h1>
+                        <div class="tags"><span>Java</span></div>
+                        <sub><span>A custom AI engine plays the arcade title, Lunar Lander, programmed and.rendered from scratch.</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="three-item">
+                    <div class="portfolio-title">
+                        <h1>Web-room</h1>
+                        <div class="tags"><span>Three.JS</span><span>Javascript</span><span>3DCSS</span><span>Blender</span></div>
+                        <sub><span>A three-dimensional living space explorable from the browser, modeled and lightmapped in Blender.</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="web-item">
+                    <div class="portfolio-title">
+                        <h1>Keep it Together</h1>
+                        <div class="tags"><span>P5.js</span><span>HTML</span></div>
+                        <sub><span>A short game made from watercolors and simple physics, playable in the browser.</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="park-item">
+                    <div class="portfolio-title">
+                        <h1>The Park Behind my House</h1>
+                        <div class="tags"><span>Unity</span><span>Blender</span><span>HLSL</span></div>
+                        <sub><span>My first experiments integrating acrylic paints in digital 3D space lead me to this study on the park behind my childhood home.</span></sub>
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
     <div id="icon-container">
         <div class="icon sono" id="github">
             <a href="https://github.com/ian41284128">
                 <img src="images/github.svg"/>
-                <p>github</p>
+                <p>Github</p>
             </a>
         </div>
         <div class="icon sono" id="itchio">
             <a href="https://tsai-ian.itch.io/">
                 <img src="images/itchio-textless-black.svg"/>
-                <p>itch.io</p>
+                <p>Itch.io</p>
+            </a>
+        </div>
+        <div class="icon sono" id="linkedin">
+            <a href="https://www.linkedin.com/in/ian-nacke-72885a183/">
+                <img src="images/linkedin-brands-solid.svg"/>
+                <p>LinkedIn</p>
             </a>
         </div>
         <div class="icon sono" id="email">
             <a href="mailto:iannacke101@gmail.com">
                 <img src="images/email-circle-fill.svg"/>
-                <p>email me</p>
+                <p>Email Me</p>
             </a>
         </div>
     </div>
