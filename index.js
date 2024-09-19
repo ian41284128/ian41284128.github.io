@@ -1,6 +1,16 @@
 let animationFrames = ['/', '-', '\\', '|']
 let loadingSpan = document.getElementById('loading-animation')
 
+function handleExpand(){
+    if(this.classList.contains("expanded")){
+        this.classList.remove("expanded")
+    } else {
+        this.classList.add("expanded")
+    }
+}
+
+document.getElementById("portfolio").onclick = handleExpand
+
 function animateTerminal(frame){
     loadingSpan.textContent = animationFrames[frame]
 }

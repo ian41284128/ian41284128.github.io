@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <script type="module" src="/index.js"></script>
+    <script type="module" src="index.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
@@ -25,17 +25,39 @@
             <span class="type">This page is still in progress... </span> <span id="loading-animation"></span>
         </div>
     </div>
-    <div class="window sono" id="portfolio" data-title="Projects">
+
+    <div class="window" id="portfolio" data-title="Projects">
+        <div id="portfolio-header">
+            <h2>Video games, complete and in progress</h2>
+        </div>
         <div class="window-content">
-            <article class="portfolio-item" id="item1">
-                <h1 class="portfolio-title">Project Title</h1>
-            </article>
-            <article class="portfolio-item" id="item2">
-                <h1 class="portfolio-title">Project Title</h1>
-            </article>
-            <article class="portfolio-item" id="item3">
-                <h1 class="portfolio-title">Project Title</h1>
-            </article>
+            <div id="portfolio-items">
+                <article class="portfolio-item" id="desert-item">
+                    <div class="portfolio-title">
+                        <h1>The Desert</h1>
+                        <div class="tags"><span>Unity</span><span>C#</span><span>GDAL</span></div>
+                        <sub><span>A work in progress, augmented reality, geospatial data experiment.</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="ai-item">
+                    <div class="portfolio-title">
+                        <h1>Lunar Lander Reinforcement Learning Agent</h1>
+                        <sub><span>Made in 2024 with Unity and Blender</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="web-item">
+                    <div class="portfolio-title">
+                        <h1>Keep it Together</h1>
+                        <sub><span>Made in 2024 with Unity and Blender</span></sub>
+                    </div>
+                </article>
+                <article class="portfolio-item" id="park-item">
+                    <div class="portfolio-title">
+                        <h1>The Park Behind my House</h1>
+                        <sub><span>A hand painted environment</span></sub>
+                    </div>
+                </article>
+            </div>
         </div>
     </div>
     <div id="icon-container">

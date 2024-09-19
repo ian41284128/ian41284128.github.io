@@ -48,8 +48,10 @@ body{
     padding-top: var(--title-bar-height);
     border: var(--border-weight) solid black;
     border-radius: var(--border-radius);
-    filter: drop-shadow(5px 5px 0px black);
+    filter: drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.5));
     overflow: hidden;
+    
+    transition: all 1s ease-out;
 }
 
 .window::before{
@@ -97,9 +99,25 @@ body{
     overflow-y: scroll;
 }
 
+.window.expanded{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 100 !important;
+    border-radius: 0;
+    transition: all 1s ease-out;
+}
+
+.window.expanded::before{
+    border-radius: 0;
+}
+
 .icon{
     flex: 1;
     padding: 5px;
+    margin: auto;
     text-align: center;
     border: 1px solid rgb(0,0,0,0);
     a{
@@ -111,6 +129,7 @@ body{
         padding: 0;
     }
 }
+
 .icon:hover{
     border: 1px dashed rgb(0,0,255,0.1);
     background-color: rgb(0,0,255,0.1);
@@ -121,7 +140,9 @@ body{
     flex-wrap: wrap;
     gap: 10px;
     width: min-content;
+    height: 100vh;
     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #about{
@@ -143,8 +164,8 @@ body{
 }
 
 #portfolio{
-    background-color: rgb(255,255,255,.5);
-    z-index: 1;
+    background-color: black;
+    z-index: 2;
     position: absolute;
     top: 70px;
     left: 750px;
@@ -152,12 +173,41 @@ body{
     height: 500px;
 }
 
-.portfolio-title{
-    margin: 0;
-    text-align: center;
+#portfolio-header{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+    color: white;
     background-color: black;
+    text-align: left;
+    transition: all 1s linear;
+}
+
+#portfolio-items{
+    transition: all 1s linear;
+    display: inline-block;
+    width: 80%;
+}
+
+#portfolio.expanded{
+    transition: all 1s linear;
+    #portfolio-header{
+        width: -10px;
+        padding-right: 20%;
+    }
+    #portfolio-items{
+        width: 100%;
+    }
+}
+
+.portfolio-title{
+    display: inline-block;
     color: white;
     padding: 30px;
+    vertical-align: middle;
 }
 
 .portfolio-item{
@@ -167,18 +217,46 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100%;
 }
 
-#item1{
-    background-color: white;
+.portfolio-title > h1{
+    margin-bottom: 5px;
+}
+
+.tags{
+    margin-bottom: 10px;
+}
+
+.tags > span{
+    background-color: red;
+    font-size: small;
+    border-radius: 20px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.portfolio-item:hover{
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,.2);
+    transition: all 0.1s linear;
+}
+
+/* hide hover effect when maximized */
+#portfolio.expanded > .window-content > #portfolio-items > .portfolio-item{
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0);
+    transition: all 1s linear;
+}
+
+#park-item{
     background-image: url(https://img.itch.zone/aW1nLzM1MjI1MDYuanBn/original/sfmJFa.jpg);
 }
 
-#item2{
+#desert-item{
     background-image: url(/images/desert_portal_thumb.png);
 }
 
-#item3{
-
+#ai-item{
+    background-image: url(https://img.itch.zone/aW1hZ2UvNDgxNzIyLzI0ODI0MjIuanBn/794x1000/RfyUMo.jpg);
+}
+#web-item{
+    background-image: url(https://img.itch.zone/aW1nLzE0NTgxMjIzLnBuZw==/original/XE8zZu.png);
 }
