@@ -70,6 +70,8 @@ body{
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     border: var(--border-weight) solid black;
     background-color: plum;
+    margin-left: 0%;
+    transition: margin-left 1s linear;
 }
 
 .window::after{
@@ -80,7 +82,7 @@ body{
     height: var(--title-bar-height);
     width: 70%;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 18px;
     font-family: "Comfortaa", sans-serif;
     background-size: var(--title-bar-height);
     --icon-width: 3px;
@@ -99,6 +101,11 @@ body{
     overflow-y: scroll;
 }
 
+/* Hide scrollbars on Chrome */
+.window-content::-webkit-scrollbar {
+    display: none;
+  }
+
 .window.expanded{
     position: absolute !important;
     top: 0 !important;
@@ -114,12 +121,20 @@ body{
     border-radius: 0;
 }
 
+.window.expanded::after{
+    margin-left: 47%;
+    transition: margin-left 1s linear;
+}
+
 .icon{
     flex: 1;
     padding: 5px;
     margin: auto;
     text-align: center;
     border: 1px solid rgb(0,0,0,0);
+    img{
+        filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+    }
     a{
         text-decoration: none;
         color: #000;
@@ -154,7 +169,7 @@ body{
     top: 100px;
     left: 200px;
     width: 400px;
-    height: 360px;
+    height: 400px;
     p{
         margin: 0;
     }
@@ -164,6 +179,7 @@ body{
 }
 
 #portfolio{
+    --icon: url(https://cdn-icons-png.flaticon.com/512/1300/1300029.png);
     background-color: black;
     z-index: 2;
     position: absolute;
@@ -174,6 +190,7 @@ body{
 }
 
 #portfolio-header{
+    font-family: "Comfortaa", sans-serif;
     position: absolute;
     right: 0;
     top: 0;
@@ -182,11 +199,16 @@ body{
     padding: 10px;
     color: white;
     background-color: black;
-    text-align: left;
+    text-align: right;
     transition: all 1s linear;
+    background: linear-gradient(rgba(255,227,146,1), rgba(250,159,255,1));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #portfolio-items{
+    font-family: "Comfortaa", sans-serif;
     transition: all 1s linear;
     display: inline-block;
     width: 80%;
@@ -225,10 +247,21 @@ body{
 
 .tags{
     margin-bottom: 10px;
+    span:nth-child(1){
+        background-color: #ff7092;
+    }
+    span:nth-child(2){
+        background-color: #FC533F;
+    }
+    span:nth-child(3){
+        background-color: #FC3F6B;
+    }
+    span:nth-child(4){
+        background-color: #FC743F;
+    }
 }
 
 .tags > span{
-    background-color: red;
     font-size: small;
     border-radius: 20px;
     margin-right: 10px;
@@ -250,12 +283,16 @@ body{
     background-image: url(https://img.itch.zone/aW1nLzM1MjI1MDYuanBn/original/sfmJFa.jpg);
 }
 
+#three-item{
+    background-image: url(/images/portfolio_items/threejs/wireframe.png);
+}
+
 #desert-item{
-    background-image: url(/images/desert_portal_thumb.png);
+    background-image: url(/images/portfolio_items/desert/sunrise.png);
 }
 
 #ai-item{
-    background-image: url(https://img.itch.zone/aW1hZ2UvNDgxNzIyLzI0ODI0MjIuanBn/794x1000/RfyUMo.jpg);
+    background-image: url(https://img.itch.zone/aW1nLzI0ODIzOTkucG5n/original/0dC9QW.png);
 }
 #web-item{
     background-image: url(https://img.itch.zone/aW1nLzE0NTgxMjIzLnBuZw==/original/XE8zZu.png);
