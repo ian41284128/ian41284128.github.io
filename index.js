@@ -1,15 +1,24 @@
 let animationFrames = ['/', '-', '\\', '|']
 let loadingSpan = document.getElementById('loading-animation')
 
-function handleExpand(){
-    if(this.classList.contains("expanded")){
-        this.classList.remove("expanded")
+new ResizeObserver(() => {
+    document.documentElement.style.setProperty("--icon-container-width", 
+        document.getElementById('icon-container').offsetWidth + 'px')
+}).observe(document.getElementById('icon-container'))
+
+window.handleExpand = (id) => {
+    let elem = document.getElementById(id)
+    if(elem.classList.contains("expanded")){
+        elem.classList.remove("expanded")
     } else {
-        this.classList.add("expanded")
+        elem.classList.add("expanded")
     }
 }
 
-document.getElementById("portfolio").onclick = handleExpand
+window.scrollToPortfolioItem = (id) => {
+    window.handleExpand('portfolio')
+    setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: "smooth" }), 500)
+}
 
 function animateTerminal(frame){
     loadingSpan.textContent = animationFrames[frame]
