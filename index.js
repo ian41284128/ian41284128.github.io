@@ -17,7 +17,8 @@ window.handleExpand = (id) => {
 
 window.scrollToPortfolioItem = (id) => {
     window.handleExpand('portfolio')
-    setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: "smooth" }), 500)
+    let elem = document.getElementById(id);
+    setTimeout(() => elem.scrollIntoView({ behavior: "smooth" }), 500)
 }
 
 function animateTerminal(frame){

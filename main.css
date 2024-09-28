@@ -123,6 +123,8 @@ body{
 }
 
 .icon{
+    font-family: "Comfortaa", sans-serif;
+    font-size: 1.1em;
     flex: 1;
     padding: 5px;
     margin: auto;
@@ -143,6 +145,7 @@ body{
 
 .icon:hover{
     border: 1px dashed rgb(0,0,255,0.1);
+    border-radius: 10px;
     background-color: rgb(0,0,255,0.1);
 }
 
@@ -213,7 +216,7 @@ body{
 
 #portfolio.expanded{
     transition: all 1s ease;
-    transition-delay: 1s;
+    transition-delay: 0.3s;
     #portfolio-header{
         width: -10px;
         padding-right: 20%;
@@ -221,6 +224,10 @@ body{
     #portfolio-items{
         width: 100%;
     }
+}
+
+sub.description{
+    font-size: medium;
 }
 
 .portfolio-item{
@@ -232,7 +239,7 @@ body{
     background-size: cover;
     padding-bottom: 0;
     overflow: hidden;
-    max-height: 215px;
+    max-height: 270px;
     transition: all 1s ease;
 }
 
@@ -254,9 +261,9 @@ body{
 
 .links{
     position: absolute;
-    top: -10em;
-    height: 10em;
-    right: 1em;
+    top: 20px;
+    right: calc(20px + 1em);
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -270,7 +277,7 @@ body{
     margin-left: auto;
     width: fit-content;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .external-link::after{
@@ -281,7 +288,7 @@ body{
     width: 0.9em;
     height: 0.9em;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg>');
-    filter: invert(95%) sepia(100%) saturate(19%) hue-rotate(316deg) brightness(104%) contrast(106%);
+    /* filter: invert(95%) sepia(100%) saturate(19%) hue-rotate(316deg) brightness(104%) contrast(106%); */
     transition: all 500ms ease;
 }
 
@@ -297,16 +304,50 @@ body{
 }
 
 .portfolio-content{
-    background: white;
-    color: black;
-    padding: 20px;
     margin-bottom: 100px;
-    display: inline-block;
+    margin-right: 100px;
+    width: 80vw;
     position: relative;
-    width: 50vw;
     opacity: 0;
+    pointer-events: none;
     transition: all 1s ease;
     transition-delay: 0s;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 100px;
+}
+
+.portfolio-text{
+    background: white;
+    position: relative;
+    color: black;
+    padding: 20px;
+    order: 1;
+    height: fit-content;
+}
+
+.portfolio-images{
+    order: 2;
+    color: white;
+    text-align: center;
+    max-width: 50%;
+    min-width: 40%;
+}
+
+.portfolio-images > * {
+    margin: 20px;
+    margin-top: 40px;
+    margin-left: 0;
+}
+
+.portfolio-images > *:nth-child(1){
+    margin-top: 0;
+}
+
+.portfolio-images > div > video{
+    width: 35vw;
 }
 
 .expanded > .window-content > #portfolio-items > .portfolio-item{
@@ -315,12 +356,14 @@ body{
     transition: all 100ms ease;
     .portfolio-content{
         opacity: 1;
-        transition-delay: 1s;
+        transition-delay: 0.3s;
+        pointer-events: all;
     }
 }
 
 .tags{
     margin-bottom: 10px;
+    margin-top: 10px;
     span:nth-child(1){
         background-color: #ff7092;
     }
@@ -337,7 +380,7 @@ body{
 
 .tags > span{
     font-size: small;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     margin-right: 10px;
     padding: 5px;
 }
@@ -354,7 +397,7 @@ body{
 }
 
 #park-item{
-    background-image: url(https://img.itch.zone/aW1nLzM1MjI1MDYuanBn/original/sfmJFa.jpg);
+    background-image: url(images/portfolio_items/cycle2proj/person_cover.jpg);
 }
 
 #three-item{
