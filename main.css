@@ -409,15 +409,12 @@ sub.description{
     background-image: url(/images/portfolio_items/desert/sunrise.png);
 }
 
-<<<<<<< HEAD
 #bonsai-item{
     background-image: url(/images/portfolio_items/bonsaisim/pot.png);
     background-color: rgba(200,100,0,.5);
     background-blend-mode: multiply;
 }
 
-=======
->>>>>>> ea20766326ca4b9f82b033a7c651dcd9a05f7b35
 #ai-item{
     background-image: url(https://img.itch.zone/aW1nLzI0ODIzOTkucG5n/original/0dC9QW.png);
 }
