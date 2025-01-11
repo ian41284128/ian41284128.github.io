@@ -1,6 +1,23 @@
 let animationFrames = ['/', '-', '\\', '|']
 let loadingSpan = document.getElementById('loading-animation')
 
+let portfolioContent = document.getElementById("portfolio-items")
+let PortfolioItemsCount = document.getElementsByClassName("portfolio-item").length
+let portfolioContentsTable = document.getElementById("portfolio-header").getElementsByTagName("p")
+
+portfolioContent.parentElement.onscroll = () => {
+    let itemsRect = portfolioContent.getBoundingClientRect()
+    let windowRect = portfolioContent.parentElement.getBoundingClientRect()
+    let scrollAmount = windowRect.top - itemsRect.top
+    let scrollPercent = scrollAmount / (itemsRect.height - windowRect.height)
+    let topIdx = Math.min(Math.floor(scrollPercent * PortfolioItemsCount), PortfolioItemsCount-1)
+    for(let i = 0; i < portfolioContentsTable.length; i++){
+        portfolioContentsTable.item(i).classList.remove("underlined")
+    }
+    portfolioContentsTable.item(topIdx).classList.add("underlined")
+    console.log(topIdx)
+}
+
 new ResizeObserver(() => {
     document.documentElement.style.setProperty("--icon-container-width", 
         document.getElementById('icon-container').offsetWidth + 'px')

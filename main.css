@@ -208,6 +208,10 @@ body{
     -webkit-text-fill-color: transparent;
 }
 
+#portfolio-header > p.underlined{
+    text-decoration: underline;
+}
+
 #portfolio-items{
     transition: all 1s ease;
     display: inline-block;
