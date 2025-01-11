@@ -25,13 +25,30 @@
 
     <div class="window" id="portfolio" data-title="My Projects">
         <div id="portfolio-header">
-            <h3>My video games and websites</h3>
-            <p>Bonsai Simulator</p>
-            <p>The Desert</p>
-            <p>Lunar Lander RL Agent</p>
-            <p>My Virtual Apartment</p>
-            <p>Keep it Together</p>
-            <p>The Park Behind my House</p>
+            <div id="portfolio-sections">
+                <h3>My video games and websites</h3>
+                <h3>Articles and Research</h3>
+            </div>
+            <div id="games-contents">
+                <a onclick="scrollToPortfolioItem('bonsai-item')">
+                    <p>Bonsai Simulator</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('desert-item')">
+                    <p>The Desert</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('ai-item')">
+                    <p>Lunar Lander RL Agent</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('three-item')">
+                    <p>My Virtual Apartment</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('web-item')">
+                    <p>Keep it Together</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('park-item')">
+                    <p>The Park Behind my House</p>
+                </a>
+            </div>
         </div>
         <div class="window-content">
             <div id="portfolio-items" class="sono">
@@ -187,7 +204,7 @@
                                 The landing page for the website
                             </img>
                             <img src="images/portfolio_items/threejs/projectwall.png" alt="A timelapse of the day-night cycle in the desert">
-                                Posters above the bed are native CSS not Three.js.
+                                Posters above the bed are native CSS not Three.js. They rotate with the Three.js scene by syncing up a 3DCSS cube and rendering it over top of the Three.js canvas.
                             </img>
                         </div>
                         <div class="portfolio-text">

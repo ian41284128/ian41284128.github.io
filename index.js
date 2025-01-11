@@ -3,7 +3,7 @@ let loadingSpan = document.getElementById('loading-animation')
 
 let portfolioContent = document.getElementById("portfolio-items")
 let PortfolioItemsCount = document.getElementsByClassName("portfolio-item").length
-let portfolioContentsTable = document.getElementById("portfolio-header").getElementsByTagName("p")
+let portfolioContentsTable = document.getElementById("games-contents").children
 
 portfolioContent.parentElement.onscroll = () => {
     let itemsRect = portfolioContent.getBoundingClientRect()
@@ -23,17 +23,17 @@ new ResizeObserver(() => {
         document.getElementById('icon-container').offsetWidth + 'px')
 }).observe(document.getElementById('icon-container'))
 
-window.handleExpand = (id) => {
+window.handleExpand = (id, flag) => {
     let elem = document.getElementById(id)
-    if(elem.classList.contains("expanded")){
+    if(elem.classList.contains("expanded") && flag == false){
         elem.classList.remove("expanded")
-    } else {
+    } else if (flag = true) {
         elem.classList.add("expanded")
     }
 }
 
 window.scrollToPortfolioItem = (id) => {
-    window.handleExpand('portfolio')
+    window.handleExpand('portfolio', true)
     let elem = document.getElementById(id);
     setTimeout(() => elem.scrollIntoView({ behavior: "smooth" }), 500)
 }
