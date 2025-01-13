@@ -16,19 +16,103 @@
             <p><span style="color:#98971a">ian@nacke</span> <span style="color:#d79921">~</span> <span style="color:#b16286">%</span> <span class="type">./'hello world'</span></p>
             <p class="type">Hi, my name is Ian,</p>
             <p class="type">
-                I recently graduated with a B.S. in computer science from NYU Shanghai and love programming gameplay, simulating nature, and experimenting with graphics. I like programming best when it makes art, and my passion projects often integrate my interest for 3D modeling and physical art such as acrylics and pen/pencil. I am Experienced with Unity, C#, and Javascript frameworks like P5 and Three, and dream of making video games for a living.
+                I am a game developer who loves programming automated systems, simulating nature, and experimenting with graphics. My passion for designing procedural systems and virtual worlds led me to a B.S. in computer science from NYU Shanghai. I like programming best when it makes art, and my passion projects often integrate 3D modeling, acrylics, watercolors, and pen/pencil. My strengths are in Unity C# and Java, and my education was in Python and C++. I pursue 3D modeling, digital art, and creative writing as a hobby, and I'm never not building a side project.
             </p>
-            <br>
-            <span class="type">Thanks for visiting! This page is still in progress, so check back for updates... </span> <span id="loading-animation"></span>
+            <span class="type">Thanks for visiting! ...</span> <span id="loading-animation"></span>
         </div>
     </div>
 
     <div class="window" id="portfolio" data-title="My Projects">
+        <div id="window-buttons" onclick="handleExpand('portfolio', false)"></div>
         <div id="portfolio-header">
-            <h3>My video games and websites</h3>
+            <div id="portfolio-sections">
+                <h3>Video Games and Websites</h3>
+            </div>
+            <div id="games-contents">
+                <a onclick="scrollToPortfolioItem('bonsai-item')">
+                    <p>Bonsai Simulator</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('desert-item')">
+                    <p>The Desert</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('ai-item')">
+                    <p>Lunar Lander RL Agent</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('three-item')">
+                    <p>My Virtual Apartment</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('web-item')">
+                    <p>Keep it Together</p>
+                </a>
+                <a onclick="scrollToPortfolioItem('park-item')">
+                    <p>The Park Behind my House</p>
+                </a>
+            </div>
         </div>
         <div class="window-content">
             <div id="portfolio-items" class="sono">
+                <article class="portfolio-item" id="bonsai-item">
+                    <a class="expand-button" onclick="scrollToPortfolioItem('bonsai-item')"></a>
+                    <header class="portfolio-title">
+                        <h1>
+                            Bonsai Simulator
+                        </h1>
+                        <sub class="year">2024</sub>
+                        <div class="tags"><span>Unity</span><span>C#</span><span>Blender</span></div>
+                        <sub class="description"><span>Submitted for ProcJam 2024, Bonsai Simulator is an artistic representation of tree growth. Care for a potted sapling using simplified bonsai care methods. Trim, prune and wire a potted tree as it ages.</span></sub>
+                    </header>
+                    <div class="portfolio-content">
+                        <div class="portfolio-images">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0DAeU4MPkLs?modestbranding=1&autohide=1&showinfo=0&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                            </iframe>
+                            Timelapse of bonsais generated at different growth stages. Each bonsai has slightly different growth patterns which affect branch strength and trunk expansion rate.
+                            <img src="images/portfolio_items/bonsaisim/cover2.png">
+                                Branch growth is propogated in the form of energy, starting at the base of the tree and working its way upwards. The development of a branch is limited so that the sum of the girth of the branches does not exceed the girth of the trunk.
+                            </img>
+                        </div>
+                        <div class="portfolio-text">
+                            <div class="links">
+                                <a class="external-link" href="https://tsai-ian.itch.io/bonsai-simulator/devlog/830612/procjam-2024-postmortem" target="_blank" rel="noopener noreferrer">Read the postmortem</a>
+                                <a class="external-link" href="https://tsai-ian.itch.io/bonsai-simulator">Play the game</a>
+                            </div>
+                            <p>Engine: Unity</p>
+                            <p>Platforms: Web, Windows</p>
+                            <p>Duration: Two Weeks</p>
+                            <p>Team Size: One (solo project)</p>
+                            <h3>About</h3>
+                            <p>
+                                Bonsai Simulator is all about representing the real processes of tree growth. Care for a potted sapling using simplified bonsai care methods. Trim, prune and wire a potted tree as it ages.
+                            </p><p>
+                                My goal was to create a system that represented trees as ongoing developing organisms, not just a fixed structure at a single point in time. Rather than having complete control over the growth of the bonsai, the tree grows according to an annual system and as a player you have limited tools to influence the tree's appearance. What you choose to prune will affect not just the appearance of the bonsai, but also it's health in the future.
+                            </p>
+                            <h3>Development Process</h3>
+                            <p>
+                                This project was heavily inspired by actual bonsai care practices. I researched the growth patterns of trees both prior to and throughout development. This research not only added realism to my simulation but also simplified the design of the system by keeping only systems based on real natural processes.
+                            </p>
+                            <p>
+                                My system's design revolves around three main programming concepts: interfaces, vectors, and of course, trees.
+                            </p>
+                            <ul>
+                                <li>
+                                    <b>Trees (data structure): </b>
+                                    <p>The benefit of using this data structure is that there is already lots of literature and researched systems that can be applied to make my life easier when modeling an actual tree (recursion, tree traversals, branching).</p>
+                                </li>
+                                <li>
+                                    <b>Interfaces</b>
+                                    <p>To coordinate growth across the tree, I implement an interface called "Growth." Each segment of the tree may grow in a different way or perform different actions at the end of every year, but the interface allows these different actions to be coordinated and invoked at once. </p>
+                                </li>
+                                <li>
+                                    <b>Vectors</b>
+                                    <p>Each branch is represented by a sum of vectors which determines it's direction and length. In addition to a branch's facing direction, a weight vector is computed based on the length and girth of all branches above a given branch.</p>
+                                </li>
+                            </ul>
+                            <h3>Attributions</h3>
+                            <p>
+                                My main references were articles on <a href="https://www.thegrove3d.com/learn/how-trees-grow/">The Grove 3D</a> (to understand tree growth patterns,) as well as two books, Principles of Bonsai Design by David De Groot, and The Bonsai Beginner's Bible by Peter Chan, (to inform my decisions when rendering the tree's appearance.)
+                            </p>
+                        </div>
+                    </div>
+                </article>
                 <article class="portfolio-item" id="desert-item">
                     <a class="expand-button" onclick="scrollToPortfolioItem('desert-item')"></a>
                     <header class="portfolio-title">
@@ -119,7 +203,7 @@
                                 The landing page for the website
                             </img>
                             <img src="images/portfolio_items/threejs/projectwall.png" alt="A timelapse of the day-night cycle in the desert">
-                                Posters above the bed are native CSS not Three.js.
+                                Posters above the bed are native CSS not Three.js. They rotate with the Three.js scene by syncing up a 3DCSS cube and rendering it over top of the Three.js canvas.
                             </img>
                         </div>
                         <div class="portfolio-text">
