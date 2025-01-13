@@ -224,6 +224,7 @@ body{
 
 #games-contents{
     opacity: 0;
+    pointer-events: none;
 }
 
 #portfolio.expanded > #portfolio-header{
@@ -234,6 +235,7 @@ body{
     }
     #games-contents{
         opacity: 100%;
+        pointer-events: all;
     }
 }
 
