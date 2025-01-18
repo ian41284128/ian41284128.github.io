@@ -58,6 +58,8 @@ window.scrollToPortfolioItem = (id) => {
 }
 
 window.portfolioExpandAndScroll = (id) => {
+    if(document.getElementById("portfolio").classList.contains("expanded"))
+        return
     window.handleExpand('portfolio', true)
     let elem = document.getElementById(id)
     elem.scrollIntoView({ behavior: "smooth" })
