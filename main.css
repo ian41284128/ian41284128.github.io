@@ -352,6 +352,9 @@ sub.description{
     flex-direction: row;
     justify-content: space-evenly;
     gap: 100px;
+
+    transition: all 1s ease;
+    transition-delay: 0.3s;
 }
 
 .portfolio-text{
