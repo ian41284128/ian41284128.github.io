@@ -1,9 +1,12 @@
-let animationFrames = ['/', '-', '\\', '|']
-let loadingSpan = document.getElementById('loading-animation')
+const animationFrames = ['/', '-', '\\', '|']
+const loadingSpan = document.getElementById('loading-animation')
 
-let portfolioContent = document.getElementById("portfolio-items")
-let PortfolioItemsCount = document.getElementsByClassName("portfolio-item").length
-let portfolioContentsTable = document.getElementById("games-contents").children
+const portfolioContent = document.getElementById("portfolio-items")
+const PortfolioItemsCount = document.getElementsByClassName("portfolio-item").length
+const portfolioContentsTable = document.getElementById("games-contents").children
+
+const expand = new Event("expand")
+const minimize = new Event("minimize")
 
 portfolioContent.parentElement.onscroll = () => {
     let itemsRect = portfolioContent.getBoundingClientRect()
@@ -15,7 +18,6 @@ portfolioContent.parentElement.onscroll = () => {
         portfolioContentsTable.item(i).classList.remove("underlined")
     }
     portfolioContentsTable.item(topIdx).classList.add("underlined")
-    console.log(topIdx)
 }
 
 new ResizeObserver(() => {
@@ -23,19 +25,52 @@ new ResizeObserver(() => {
         document.getElementById('icon-container').offsetWidth + 'px')
 }).observe(document.getElementById('icon-container'))
 
-window.handleExpand = (id, flag) => {
+window.handleExpand = (id, setExpand) => {
     let elem = document.getElementById(id)
-    if(elem.classList.contains("expanded") && flag == false){
+    if(elem.classList.contains("expanded") && setExpand == false){
         elem.classList.remove("expanded")
-    } else if (flag = true) {
+        elem.dispatchEvent(minimize)
+    } else if (setExpand = true) {
         elem.classList.add("expanded")
+        elem.dispatchEvent(expand)
     }
 }
 
+document.getElementById("portfolio").addEventListener("minimize", () => {
+    const items = document.getElementsByClassName("portfolio-item")
+    let topItem = items.item(items.length-1)
+    for(let i = 0; i < items.length; i++){
+        let top = items.item(i).getBoundingClientRect().top
+        if(Math.abs(top) < Math.abs(topItem.getBoundingClientRect().top)){
+            topItem = items.item(i)
+        }
+    }
+    for(let i = 0; i < items.length; i++){
+        items.item(i).classList.remove("show-content", "gradual-expand")
+    }
+    console.log(topItem)
+    topItem.scrollIntoView()
+})
+
 window.scrollToPortfolioItem = (id) => {
+    let elem = document.getElementById(id)
+    elem.scrollIntoView({ behavior: "smooth" })
+}
+
+window.portfolioExpandAndScroll = (id) => {
     window.handleExpand('portfolio', true)
-    let elem = document.getElementById(id);
-    setTimeout(() => elem.scrollIntoView({ behavior: "smooth" }), 500)
+    let elem = document.getElementById(id)
+    elem.scrollIntoView({ behavior: "smooth" })
+    elem.classList.add("show-content", "gradual-expand")
+    setTimeout(() => {
+        const items = document.getElementsByClassName("portfolio-item")
+        for(let i = 0; i < items.length; i++){
+            if(items.item(i) != elem){
+                items.item(i).classList.add("show-content")
+            }
+        }
+        elem.scrollIntoView()
+    }, 1000);
 }
 
 function animateTerminal(frame){
