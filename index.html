@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="portfolio.css">
     <script type="module" src="index.js"></script>
+    <script type="module" src="about.js"></script>
+    <script type="module" src="portfolio.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
@@ -26,7 +29,7 @@
         <div id="window-buttons" onclick="handleExpand('portfolio', false)"></div>
         <div id="portfolio-header">
             <div id="portfolio-sections">
-                <h3>Video Games and Websites</h3>
+                <h3>Video Games</h3>
                 <p>Click on any project to learn more</p>
             </div>
             <div id="games-contents">
@@ -38,12 +41,6 @@
                 </a>
                 <a onclick="scrollToPortfolioItem('ai-item')">
                     <p>Lunar Lander RL Agent</p>
-                </a>
-                <a onclick="scrollToPortfolioItem('three-item')">
-                    <p>My Virtual Apartment</p>
-                </a>
-                <a onclick="scrollToPortfolioItem('web-item')">
-                    <p>Keep it Together</p>
                 </a>
                 <a onclick="scrollToPortfolioItem('park-item')">
                     <p>The Park Behind my House</p>
@@ -186,86 +183,6 @@
                             <h3>Development Process</h3>
                             <p>
                                 The first stage of the project involved recreating Lunar Lander in Java. I wrote custom physics and rendered the game using only shapes and drawing techniques native to the Java Swing package. For the AI portion of the project, I designed a separate engine for computing the physics and information necessary for the AI to play the game. Then I modified the original game to allow the AI agent to play, including features that would make training and modifying the AI easier.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-                <article class="portfolio-item" id="three-item">
-                    <a class="expand-button" onclick="portfolioExpandAndScroll('three-item')"></a>
-                    <header class="portfolio-title">
-                        <h1>My Virtual Apartment</h1>
-                        <sub class="year">2023</sub>
-                        <div class="tags"><span>Three.js</span><span>Javascript</span><span>3DCSS</span><span>Blender</span></div>
-                        <sub class="description"><span>A three-dimensional room rendered in the browser, modeled and lightmapped in Blender. Fully explorable and integrated with traditional HTML/CSS elements.</span></sub>
-                    </header>
-                    <div class="portfolio-content">
-                        <div class="portfolio-images">
-                            <img src="images/portfolio_items/threejs/cover.png" alt="A timelapse of the day-night cycle in the desert">
-                                The landing page for the website
-                            </img>
-                            <img src="images/portfolio_items/threejs/projectwall.png" alt="A timelapse of the day-night cycle in the desert">
-                                Posters above the bed are native CSS not Three.js. They rotate with the Three.js scene by syncing up a 3DCSS cube and rendering it over top of the Three.js canvas.
-                            </img>
-                        </div>
-                        <div class="portfolio-text">
-                            <div class="links">
-                                <a class="external-link" href="https://github.com/ian41284128/WebDevHW/tree/master/final" target="_blank" rel="noopener noreferrer">A detailed postmortem</a>
-                            </div>
-                            <p>Engine: Three.JS</p>
-                            <p>Platforms: Web</p>
-                            <p>Duration: One Month</p>
-                            <p>Team Size: Me</p>
-                            <h3>About</h3>
-                            <p>
-                                My Virtual Apartment is a 3D room that displays html content on each of its four walls. The goal was to mockup a portfolio website that was full of personality and demonstrated my interests in 3D modelling, rendering, and programming. 
-                            </p>
-                            <h3>Development Process</h3>
-                            <p>
-                                I produced all 3D assets found in the project and used baked lighting to reduce performance cost on web browsers. In addition to rendering the model using the Three.JS javascript library, I made use of CSS 3D Transforms and css environment variables to render basic HTML on top of the 3D scene.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-                <article class="portfolio-item" id="web-item">
-                    <a class="expand-button" onclick="portfolioExpandAndScroll('web-item')"></a>
-                    <header class="portfolio-title">
-                        <h1>Keep it Together</h1>
-                        <sub class="year">2023</sub>
-                        <div class="tags"><span>P5.js</span><span>HTML</span></div>
-                        <sub class="description"><span>A short game made from watercolors and simple physics, playable in the browser. Built for a course on experimental game narratives, this title focuses on communicating emotion through game mechanics.</span></sub>
-                    </header>
-                    <div class="portfolio-content">
-                        <div class="portfolio-images">
-                            <img src="images/portfolio_items/keepittogether/gameplay.gif">
-                                The game features a dynamic background which adapts to maintain a certain framerate.
-                            </img>
-                            <img src="images/portfolio_items/keepittogether/fullsheetscan.jpg">
-                                Each of the sprites used in game were painted by hand.
-                            </img>
-                        </div>
-                        <div class="portfolio-text">
-                            <div class="links">
-                                <a class="external-link" href="https://ian41284128.github.io/One-Input-Game/" target="_blank" rel="noopener noreferrer">Play the game</a>
-                                <a class="external-link" href="https://github.com/ian41284128/One-Input-Game" target="_blank" rel="noopener noreferrer">Read the code</a>
-                            </div>
-                            <p>Engine: P5.JS</p>
-                            <p>Platforms: Web</p>
-                            <p>Duration: One Week</p>
-                            <p>Team Size: Me</p>
-                            <h3>About</h3>
-                            <p>
-                                Keep It Together is a short game about stress and time management. It requires only a mouse/trackpad to play. You must keep various floating obligations within your clock face. As they stack up you may be forced to throw them out quickly but be careful; if they collide everything could fall apart.
-                            </p>
-                            <h3>Development Process</h3>
-                            <p>
-                                This game was inspired by a difficult time managing school and a long commute to work. I wanted to make a game out of the things I do to relax, so I picked tools that I enjoy using to destress. At the time I was having a lot of fun with P5.js, so I decided it was a simple environment for a short web game. I also had a small watercolor set at the time and used it to paint the moving assets in the game.
-                            </p>
-                            <p>
-                                As for future changes, besides tweaking gameplay slightly, I would have enjoyed making all UI elements out of watercolor.
-                            </p>
-                            <h3>Attributions</h3>
-                            <p>
-                                I used Matter.js for the physics simulations, because calculating object collisions efficiently in P5.js wasn't really possible in my timeframe for this project.
                             </p>
                         </div>
                     </div>
