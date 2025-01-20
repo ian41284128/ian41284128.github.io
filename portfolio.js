@@ -1,17 +1,35 @@
 const portfolioContent = document.getElementById("portfolio-items")
-const PortfolioItemsCount = document.getElementsByClassName("portfolio-item").length
+const portfolioItems = document.getElementsByClassName("portfolio-item")
 const portfolioContentsTable = document.getElementById("games-contents").children
 
+let underlinedItem = 0
+let lastScrollTop = portfolioContent.parentElement.scrollTop
+
+function getItemHeight(item){
+    return item.getBoundingClientRect().top - portfolioContent.parentElement.getBoundingClientRect().top
+}
+
 portfolioContent.parentElement.onscroll = () => {
-    let itemsRect = portfolioContent.getBoundingClientRect()
-    let windowRect = portfolioContent.parentElement.getBoundingClientRect()
-    let scrollAmount = windowRect.top - itemsRect.top
-    let scrollPercent = scrollAmount / (itemsRect.height - windowRect.height)
-    let topIdx = Math.min(Math.floor(scrollPercent * PortfolioItemsCount), PortfolioItemsCount-1)
-    for(let i = 0; i < portfolioContentsTable.length; i++){
-        portfolioContentsTable.item(i).classList.remove("underlined")
-    }
-    portfolioContentsTable.item(topIdx).classList.add("underlined")
+    if(portfolioContent.parentElement.scrollTop < lastScrollTop) { //scroll-up
+        if(underlinedItem > 0 && 
+            Math.abs(getItemHeight(portfolioItems.item(underlinedItem))) > 
+            Math.abs(getItemHeight(portfolioItems.item(underlinedItem - 1)))
+        ) {
+            portfolioContentsTable.item(underlinedItem).classList.remove("underlined")
+            underlinedItem--
+            console.log("scrolled up")
+            portfolioContentsTable.item(underlinedItem).classList.add("underlined")
+        }
+    } else if (portfolioContent.parentElement.scrollTop > lastScrollTop) { //scroll-down
+        if(underlinedItem < portfolioItems.length - 1 &&
+            Math.abs(getItemHeight(portfolioItems.item(underlinedItem))) >
+            Math.abs(getItemHeight(portfolioItems.item(underlinedItem + 1)))
+        ) {
+            portfolioContentsTable.item(underlinedItem).classList.remove("underlined")
+            underlinedItem++
+            portfolioContentsTable.item(underlinedItem).classList.add("underlined")
+        }
+    } //else horizontal scroll
 }
 
 document.getElementById("portfolio").addEventListener("minimize", () => {
