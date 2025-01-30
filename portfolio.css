@@ -10,7 +10,7 @@
     color: white;
     background-color: black;
     text-align: right;
-    background: linear-gradient(rgba(255,227,146,1), rgba(250,159,255,1));
+    background: linear-gradient(var(--color2), var(--color1));
     -webkit-background-clip: text;
             background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -210,17 +210,20 @@ sub.description{
 .tags{
     margin-bottom: 10px;
     margin-top: 10px;
+    color: black;
+    font-weight: bold;
+    filter: invert(100%);
     span:nth-child(1){
-        background-color: #ff7092;
+        background-color: var(--color3);
     }
     span:nth-child(2){
-        background-color: #FC533F;
+        background-color: var(--color2);
     }
     span:nth-child(3){
-        background-color: #FC3F6B;
+        background-color: var(--color1);
     }
     span:nth-child(4){
-        background-color: #FC743F;
+        background-color: var(--color3);
     }
 }
 

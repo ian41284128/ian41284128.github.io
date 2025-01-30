@@ -12,12 +12,12 @@ function typingAnimation(element, text, next){
     if(text.length > 0){
         setTimeout(() => {
             typingAnimation(element, text, next)
-        }, 15)
+        }, 1)
     }else{
         setTimeout(() => {
             element.innerText = element.innerText.slice(0,-1)
             next()
-        }, 500)
+        }, 100)
     }
 }
 
