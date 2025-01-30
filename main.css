@@ -15,10 +15,13 @@ img{
 }
 
 html{
-    background-color: rgb(250,159,255);
-    background: linear-gradient(90deg, rgba(250,159,255,1) 0%, rgba(255,227,146,1) 100%, rgba(0,212,255,1) 100%);
-    background: -moz-linear-gradient(90deg, rgba(250,159,255,1) 0%, rgba(255,227,146,1) 100%, rgba(0,212,255,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(250,159,255,1) 0%, rgba(255,227,146,1) 100%, rgba(0,212,255,1) 100%);
+    --color1: rgba(250,159,255,1);
+    --color2: rgba(255,227,146,1);
+    --color3: rgba(0,212,255,1);
+    background-color: var(--color1);
+    background: linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%, var(--color3) 100%);
+    background: -moz-linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%, var(--color3) 100%);
+    background: -webkit-linear-gradient(90deg, var(--color1) 0%, var(--color2) 100%, var(--color3) 100%);
     scroll-behavior: smooth;
 }
 
@@ -178,6 +181,7 @@ body{
     }
     .window-content{
         padding: 5px;
+        overflow-y: hidden !important;
     }
 }
 
